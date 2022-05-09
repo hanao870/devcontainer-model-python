@@ -1,6 +1,6 @@
 // devcontainer.json の詳細は https://aka.ms/vscode-remote/devcontainer.json を参照
 {
-    "name": "Python 3",
+    "name": "Python Development Environment",
     "build": {
         "dockerfile": "Dockerfile"
     },
