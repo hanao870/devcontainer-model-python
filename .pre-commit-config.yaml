@@ -58,8 +58,8 @@ repos:
     hooks:
     - id: check-json5
   # markdown のフォーマットチェック
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.31.1
+  - repo: https://github.com/markdownlint/markdownlint
+    rev: v0.11.0
     hooks:
       - id: markdownlint
-        args: ["--fix"] # markdown ファイルの自動フォーマットオプション. 全てのエラーに対応できるわけでない
+        args: [-r, ~MD013]

@@ -16,4 +16,9 @@ RUN pip install --no-cache-dir \
     # コミット前の検証ツール. git hook を使用
     pre-commit==2.18.1
 
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends rubygems
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*\
+
 ENV TZ Asia/Tokyo
