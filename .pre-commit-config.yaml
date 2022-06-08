@@ -29,7 +29,7 @@ repos:
       - id: black # 記述方法は https://black.readthedocs.io/en/stable/integrations/source_version_control.html 参照
   # mypy Python の静的型チェックツール
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.950
+    rev: v0.961
     hooks:
       - id: mypy
         args: [--strict, --ignore-missing-imports]
