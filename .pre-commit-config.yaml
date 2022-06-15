@@ -14,8 +14,6 @@ repos:
       # - id: no-commit-to-branch   # 特定のブランチに直接コミットできないようにする
       #   args: [--branch, master]  # どのブランチにコミットできないようにするかを設定できる. デフォルトは master/main
       - id: check-json  # コメント付き json ではシンタックスエラーとなる
-      - id: pretty-format-json  # ckeck-json と合わせて使用する必要あり
-        args: [--autofix] # json ファイルの自動フォーマット有効
   # isort Python の import の並びを整形するフォーマッタ
   - repo: https://github.com/pycqa/isort
     rev: 5.10.1
