@@ -50,6 +50,12 @@ repos:
           # - --ignore=D212, D203
           # ignore と convention は排他のため、どちらか一方しか設定できない
           - --convention=google
+  - repo:  https://github.com/PyCQA/bandit
+    rev: 1.7.4
+    hooks:
+    - id: bandit
+      # 設定ファイルの指定
+      args: ["-c pyproject.toml"]
   # markdown のフォーマットチェック
   - repo: https://github.com/markdownlint/markdownlint
     rev: v0.11.0
