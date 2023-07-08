@@ -55,7 +55,8 @@ repos:
     hooks:
     - id: bandit
       # 設定ファイルの指定
-      args: ["-c pyproject.toml"]
+      args: ["-c", "pyproject.toml"]
+      additional_dependencies: ["bandit[toml]"]
   # markdown のフォーマットチェック
   - repo: https://github.com/markdownlint/markdownlint
     rev: v0.12.0

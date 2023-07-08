@@ -17,3 +17,6 @@ exclude = '''
 [tool.isort]
 # isort を black の設定に合わせる
 profile = "black"
+
+[tool.bandit]
+exclude_dirs = ["tests"]
