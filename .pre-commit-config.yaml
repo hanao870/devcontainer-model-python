@@ -22,18 +22,18 @@ repos:
         args: ["--profile", "black"]  # black のフォーマッタとの競合を避ける
   # black PEP8 準拠の Pytho コードフォーマッタ
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.9.1
     hooks:
       - id: black # 記述方法は https://black.readthedocs.io/en/stable/integrations/source_version_control.html 参照
   # mypy Python の静的型チェックツール
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.4.1
+    rev: v1.5.1
     hooks:
       - id: mypy
         args: [--strict, --ignore-missing-imports]
   # flake8
   - repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
       - id: flake8
         # E501 : max-line-length
@@ -59,7 +59,7 @@ repos:
       additional_dependencies: ["bandit[toml]"]
   # markdown のフォーマットチェック
   - repo: https://github.com/markdownlint/markdownlint
-    rev: v0.12.0
+    rev: v0.13.0
     hooks:
       - id: markdownlint
         args: [-r, ~MD013]
