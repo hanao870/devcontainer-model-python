@@ -1,21 +1,21 @@
-FROM python:3.12.0
+FROM python:3.12.3
 
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir \
     # リンター. pycodestyle(pep8 スタイルチェック), pyflakes(論理エラーのチェック), mccabe(複雑度チェック) をまとめたツール
-    flake8==6.1.0 \
+    flake8==7.0.0 \
     # 静的型チェックツール
-    mypy==1.5.1 \
+    mypy==1.9.0 \
     # プログラムの静的セキュリティチェックツール
-    bandit==1.7.5 \
+    bandit==1.7.8 \
     # PEP 257 で規定されている docstring のリンター
     pydocstyle==6.3.0 \
     # PEP8 準拠の Pytho コードフォーマッタ
-    black==23.9.1 \
+    black==24.4.0 \
     # import の並びを整形するフォーマッタ
-    isort==5.12.0 \
+    isort==5.13.2 \
     # コミット前の検証ツール. git hook を使用
-    pre-commit==3.4.0
+    pre-commit==3.7.0
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends rubygems \
