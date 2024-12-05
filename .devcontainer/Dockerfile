@@ -1,4 +1,4 @@
-FROM python:3.12.3
+FROM python:3.13.1
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends rubygems ruby-dev \

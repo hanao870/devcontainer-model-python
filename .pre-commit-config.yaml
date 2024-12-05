@@ -4,7 +4,7 @@
 # 参考サイト : https://zenn.dev/yiskw713/articles/3c3b4022f3e3f22d276d
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
       - id: check-added-large-files
       - id: check-toml
@@ -14,49 +14,21 @@ repos:
       # - id: no-commit-to-branch   # 特定のブランチに直接コミットできないようにする
       #   args: [--branch, master]  # どのブランチにコミットできないようにするかを設定できる. デフォルトは master/main
       - id: check-json  # コメント付き json ではシンタックスエラーとなる
-  # isort Python の import の並びを整形するフォーマッタ
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.8.1
     hooks:
-      - id: isort
-        args: ["--profile", "black"]  # black のフォーマッタとの競合を避ける
-  # black PEP8 準拠の Pytho コードフォーマッタ
-  - repo: https://github.com/psf/black
-    rev: 24.4.0
-    hooks:
-      - id: black # 記述方法は https://black.readthedocs.io/en/stable/integrations/source_version_control.html 参照
+      # Run the linter.
+      - id: ruff
+        args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
   # mypy Python の静的型チェックツール
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.9.0
+    rev: v1.13.0
     hooks:
       - id: mypy
         args: [--strict, --ignore-missing-imports]
-  # flake8
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.0.0
-    hooks:
-      - id: flake8
-        # E501 : max-line-length
-        args: [--ignore=E501, "--per-file-ignores=__init__.py:F401"]
-  # pydocstyle https://www.pydocstyle.org/en/latest/usage.html#usage-with-the-pre-commit-git-hooks-framework
-  - repo: https://github.com/pycqa/pydocstyle
-    rev: 6.3.0
-    hooks:
-      - id: pydocstyle
-        args:
-          # 以下のルールは排他のため、どちらか一方(もしくは両方)を無視する
-          # D212 / D213 : モジュールの先頭ドキュメント
-          # D203 / D211 : クラスドキュメント
-          # - --ignore=D212, D203
-          # ignore と convention は排他のため、どちらか一方しか設定できない
-          - --convention=google
-  - repo:  https://github.com/PyCQA/bandit
-    rev: 1.7.8
-    hooks:
-    - id: bandit
-      # 設定ファイルの指定
-      args: ["-c", "pyproject.toml"]
-      additional_dependencies: ["bandit[toml]"]
   # markdown のフォーマットチェック
   - repo: https://github.com/markdownlint/markdownlint
     rev: v0.13.0

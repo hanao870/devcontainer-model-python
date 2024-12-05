@@ -14,46 +14,28 @@
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
                 "python.languageServer": "Default",
                 "python.analysis.typeCheckingMode": "strict",
-                "flake8.path": [
-                    "flake8"
-                ],
-                "flake8.args": [
-                    "--ignore=E501",
-                    "--per-file-ignores=__init__.py:F401"
-                ],
-                "mypy-type-checker.args": [
-                    "--follow-imports=silent",
-                    "--ignore-missing-imports",
-                    "--show-column-numbers",
-                    "--no-pretty",
-                    "--strict"
-                ],
+                "[python]": {
+                    "editor.defaultFormatter": "charliermarsh.ruff",
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll": "explicit",
+                        "source.organizeImports": "explicit"
+                    }
+                },
                 "mypy-type-checker.path": [
                     "mypy"
                 ],
-                "black-formatter.path": [
-                    "black"
+                "mypy-type-checker.args": [
+                    "--config=pyproject.toml"
                 ],
-                "isort.path": [
-                    "isort"
-                ],
-                "isort.args": [
-                    "--profile",
-                    "black"
-                ],
-                "editor.formatOnSave": true,
-                "editor.codeActionsOnSave": {
-                    "source.organizeImports": "explicit"
-                }
+                "ruff.format.args": [
+                    "--config=pyproject.toml"
+                ]
             },
             "extensions": [
-                "ms-python.python",
-                "ms-python.flake8",
                 "ms-python.mypy-type-checker",
-                "ms-python.black-formatter",
-                "ms-python.isort",
                 "DavidAnson.vscode-markdownlint",
-                "donjayamanne.githistory",
+                "mhutchie.git-graph",
                 "njpwerner.autodocstring",
                 "oderwat.indent-rainbow",
                 "ms-azuretools.vscode-docker"
